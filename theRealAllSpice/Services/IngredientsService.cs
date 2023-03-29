@@ -21,7 +21,7 @@ public class IngredientsService
     return ingredients;
   }
 
-  internal string Remove(int id, string userId)
+  internal string Destroy(int id, string userId)
   {
     Ingredient ingredient = _repo.GetOne(id);
     if (ingredient == null)
@@ -32,8 +32,8 @@ public class IngredientsService
     {
       throw new Exception("that is not yours filthy trash panda");
     }
-    _repo.Remove(id);
-    return $"ingredient ID: {id} was removed.";
+    _repo.Destroy(id);
+    return $"ingredient ID: {id} was purged.";
 
   }
 }

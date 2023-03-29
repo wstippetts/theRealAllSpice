@@ -13,7 +13,7 @@ public class IngredientsRepository
     INSERT INTO ingredients
     (name, quantity, recipeId, creatorId)
     VALUES
-    (@name, @quantity, @recipeId, @creatorId)
+    (@name, @quantity, @recipeId, @creatorId);
     SELECT LAST_INSERT_ID();
     ";
     int id = _db.ExecuteScalar<int>(sql, ingredientData);
@@ -48,7 +48,7 @@ public class IngredientsRepository
     ";
     return _db.Query<Ingredient>(sql, new { id }).FirstOrDefault();
   }
-  internal void Remove(int id)
+  internal void Destroy(int id)
   {
     string sql = @"
     DELETE FROM ingredients

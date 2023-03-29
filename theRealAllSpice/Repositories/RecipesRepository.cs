@@ -25,7 +25,8 @@ public class RecipesRepository
     string sql = @"
         SELECT
         rec.*,
-        acc.*!SECTIONFROM recipes rec
+        acc.* 
+        FROM recipes rec
         JOIN accounts acc ON acc.id = rec.creatorId;
         ";
     List<Recipe> recipes = _db.Query<Recipe, Account, Recipe>(sql, (recipe, account) =>
