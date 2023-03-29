@@ -29,3 +29,12 @@ CREATE TABLE
         Foreign Key (creatorId) REFERENCES accounts(id) ON DELETE CASCADE,
         Foreign Key (recipeId) REFERENCES recipes(id) ON DELETE CASCADE
     ) default charset utf8 COMMENT '';
+
+CREATE TABLE
+    IF NOT EXISTS favorites(
+        id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+        recipeId INT NOT NULL,
+        accountId VARCHAR(100) NOT NULL,
+        Foreign Key (recipeId) REFERENCES recipes(id) ON DELETE CASCADE,
+        Foreign Key (accountId) REFERENCES accounts(id) ON DELETE CASCADE
+    ) default charset utf8 COMMENT '';
