@@ -72,7 +72,7 @@ public class RecipesRepository
     SET
     title = @title,
     instructions = @instructions,
-    img=@img,
+    img = @img,
     category = @category
     WHERE id = @id;
     ";

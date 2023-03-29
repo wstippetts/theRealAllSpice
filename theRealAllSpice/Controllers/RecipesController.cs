@@ -70,6 +70,8 @@ public class RecipesController : ControllerBase
     try
     {
       Account userInfo = await _auth.GetUserInfoAsync<Account>(HttpContext);
+      //added auth check after successfull postman checks
+      recipeUpdate.CreatorId = userInfo.Id;
       Recipe recipe = _recipesService.Update(recipeUpdate, id, userInfo.Id);
       return Ok(recipe);
     }
