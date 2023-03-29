@@ -10,7 +10,7 @@ public class FavoritesRepository
   internal Favorite Create(Favorite favoriteData)
   {
     string sql = @"
-    INSERT INTO facorites
+    INSERT INTO favorites
     (recipeid, accountId)
     VALUES
     (@recipeid, @accountId);
